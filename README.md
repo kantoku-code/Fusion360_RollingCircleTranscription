@@ -22,7 +22,7 @@ Please follow the instructions [here](https://knowledge.autodesk.com/support/fus
         + If the ratio of the diameters is an irrational number, it is an approximation.
     + D (tolerance) : the tolerance to be transferred. It is the angle of one unit rotation of the target circle when transcribing.
         + Low : 10 deg
-        + mid : 4 deg
+        + Mid : 4 deg
         + Hi : 2 deg
     + E (Information) : If three pieces of A, B, C are selected, the selection information will be displayed.
         + When the correct selection is made, it displays the number of rotations of the base circle and the target circle.
@@ -83,7 +83,7 @@ MIT
         + 直径の比率が無理数となる場合は、近似数となります。
     + D(トレランス) : 転写するトレランス。転写する際のターゲットサークルの1単位回転角度です。
         + Low : 10 deg
-        + mid : 4 deg
+        + Mid : 4 deg
         + Hi : 2 deg
     + E(情報) : A,B,C 3個が選択された場合、選択情報を表示します。
         + 正しい選択時には、ベースサークルとターゲットサークルの回転数を表示します。
