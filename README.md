@@ -10,6 +10,8 @@ Please follow the instructions [here](https://knowledge.autodesk.com/support/fus
 
 ## Usage
 + Launch the add-in.　 A command is added in the "Create" tab of "Solid" or "Surface".
+
+    ![Alt text](./resources/tool_panel_eng.png)
 + Execute the command.。
 + A dialog appears. Please select each item.
 
@@ -70,6 +72,7 @@ MIT
 ## 使用法
 + アドインを起動。"ソリッド" 又は "サーフェス" の "作成" タブ内にコマンドが追加されます。
 
+    ![Alt text](./resources/tool_panel_jpn.png)
 + コマンドを実行。
 
 + ダイアログが表示されます。各項目を選択して下さい。
