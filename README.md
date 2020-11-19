@@ -13,6 +13,8 @@ Please follow the instructions [here](https://knowledge.autodesk.com/support/fus
 + Execute the command.。
 + A dialog appears. Please select each item.
 <img src="./resources/dialog.png">
+
+
     + A (base profile) : the single profile of the source of the transcription.
     + B (Base Circle) : the circle from which the profile is to be transferred.
     + C (target circle) : the circle to be transcribed.
