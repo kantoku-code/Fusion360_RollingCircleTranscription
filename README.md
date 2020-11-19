@@ -17,19 +17,15 @@ Please follow the instructions [here](https://knowledge.autodesk.com/support/fus
 - A dialog appears. Please select each item.
 <img src="./resources/dialog.png">
     - A (base profile) : the single profile of the source of the transcription.
-
     - B (Base Circle) : the circle from which the profile is to be transferred.
-
     - C (target circle) : the circle to be transcribed.
         - In the ratio of the diameter of the target circle to the base circle,
         The number of revolutions of each other will be determined.
         - If the ratio of the diameters is an irrational number, it is an approximation.
-
     - D (tolerance) : the tolerance to be transferred. It is the angle of one unit rotation of the target circle when transcribing.
         - Low : 10 deg
         - mid : 4 deg
         - Hi : 2 deg
-
     - E (Information) : If three pieces of A, B, C are selected, the selection information will be displayed.
         - When the correct selection is made, it displays the number of rotations of the base circle and the target circle.
         It is recommended to review the diameter of each circle, as a large number of rotations will take too long to process.
@@ -84,7 +80,6 @@ MIT
     - A(ベースプロファイル) : 転写元の単一のプロファイル。
     - B(ベースサークル) : 転写元の円。
     - C(ターゲットサークル) : 転写される円。
-
         - ベースサークルとターゲットサークルの直径の比率で,
         お互いの回転数が決定します。
         - 直径の比率が無理数となる場合は、近似数となります。
@@ -92,7 +87,6 @@ MIT
         - Low : 10 deg
         - mid : 4 deg
         - Hi : 2 deg
-
     - E(情報) : A,B,C 3個が選択された場合、選択情報を表示します。
         - 正しい選択時には、ベースサークルとターゲットサークルの回転数を表示します。
         回転数が多い場合は処理時間が掛かりすぎるため、各円の直径の見直しをお勧めします。
