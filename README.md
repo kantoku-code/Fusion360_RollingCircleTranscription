@@ -12,9 +12,8 @@ Please follow the instructions [here](https://knowledge.autodesk.com/support/fus
 + Launch the add-in.　 A command is added in the "Create" tab of "Solid" or "Surface".
 + Execute the command.。
 + A dialog appears. Please select each item.
-<img src="./resources/dialog.png">
 
-
+    ![Alt text](./resources/dialog.png)
     + A (base profile) : the single profile of the source of the transcription.
     + B (Base Circle) : the circle from which the profile is to be transferred.
     + C (target circle) : the circle to be transcribed.
@@ -73,7 +72,9 @@ MIT
 
 + コマンドを実行。
 
-+ ダイアログが表示されます。各項目を選択して下さい。<img src="./resources/dialog.png">
++ ダイアログが表示されます。各項目を選択して下さい。
+
+    ![Alt text](./resources/dialog.png)
     + A(ベースプロファイル) : 転写元の単一のプロファイル。
     + B(ベースサークル) : 転写元の円。
     + C(ターゲットサークル) : 転写される円。
