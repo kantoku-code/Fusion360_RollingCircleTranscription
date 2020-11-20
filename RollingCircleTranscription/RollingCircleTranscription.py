@@ -7,14 +7,15 @@
 #Special thanks:Patrick Rainsberry
 
 from .RCT_View import RCT_View
+from .LanguageMessages import LanguageMessages as l
 
 commands = []
 command_definitions = []
 
 # command
 cmd = {
-    'cmd_name': 'Rolling Circle Transcription',
-    'cmd_description': 'It transfers the shape by two circular motions.',
+    'cmd_name': l.sLng('Rolling Circle Transcription'),
+    'cmd_description': l.sLng('It transfers the shape by two circular motions.'),
     'cmd_id': 'rct_f360_solid',
     'cmd_resources': './resources/command',
     'workspace': 'FusionSolidEnvironment',
@@ -24,8 +25,8 @@ cmd = {
 command_definitions.append(cmd)
 
 cmd = {
-    'cmd_name': 'Rolling Circle Transcription',
-    'cmd_description': 'It transfers the shape by two circular motions.',
+    'cmd_name': l.sLng('Rolling Circle Transcription'),
+    'cmd_description': l.sLng('It transfers the shape by two circular motions.'),
     'cmd_id': 'rct_f360_surf',
     'cmd_resources': './resources/command',
     'workspace': 'FusionSolidEnvironment',

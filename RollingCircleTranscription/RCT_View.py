@@ -6,29 +6,29 @@ import adsk.core, adsk.fusion, traceback
 from .Fusion360Utilities.Fusion360Utilities import AppObjects
 from .Fusion360Utilities.Fusion360CommandBase import Fusion360CommandBase
 from .RCT_Core import RCT_Factry
-
+from .LanguageMessages import LanguageMessages as l
 
 # inputs
 _imgInfo = ['img','','./resources/dialog/Explanation.png']
 
-_selProInfo = ['selPro','A:Base Profile','Select Base Profile',
+_selProInfo = ['selPro',l.sLng('A:Base Profile'),l.sLng('Select Base Profile'),
     ['Profiles']]
 _selProIpt :adsk.core.SelectionCommandInput.cast(None)
 
-_selBaseInfo = ['selBase','B:Base Circle','Select Base Circle',
+_selBaseInfo = ['selBase',l.sLng('B:Base Circle'),l.sLng('Select Base Circle'),
     ['SketchCircles']]
 _selBaseIpt :adsk.core.SelectionCommandInput.cast(None)
 
-_selTargetInfo = ['selTarget','C:Target Circle','Select Target Circle',
+_selTargetInfo = ['selTarget',l.sLng('C:Target Circle'),l.sLng('Select Target Circle'),
     ['SketchCircles']]
 _selTargetIpt :adsk.core.SelectionCommandInput.cast(None)
 
 dwnStyle = adsk.core.DropDownStyles.TextListDropDownStyle
-_dwnToleranceInfo = ['dwnTolerance','Tolerance',dwnStyle,
+_dwnToleranceInfo = ['dwnTolerance',l.sLng('Tolerance'),dwnStyle,
     {'Low':10, 'Mid':4, 'Hi':2}]
 _dwnToleranceIpt :adsk.core.DropDownCommandInput.cast(None)
 
-_stateInfo = ['stateInfo','information','']
+_stateInfo = ['stateInfo',l.sLng('information'),'']
 _stateInfoIpt :adsk.core.StringValueCommandInput.cast(None)
 
 # other

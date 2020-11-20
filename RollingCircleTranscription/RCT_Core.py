@@ -5,6 +5,7 @@
 import adsk.core, adsk.fusion, traceback
 import math, time
 from fractions import Fraction
+from .LanguageMessages import LanguageMessages as l
 
 # 比率に対しての制限
 RATIO_APPROXIMATION_LEVEL = 20
@@ -97,7 +98,8 @@ class RCT_Factry():
                 # is2D
                 if hasattr(ent, 'is2D'):
                     if not ent.is2D:
-                        msg.append("It's not an element on the sketch plane:{}".format(key))
+                        s = l.sLng("It's not an element on the sketch plane :") + ":{}".format(l.sLng(key))
+                        msg.append(s)
 
                 # baseProfile baseCircle targetCircle 同一平面上チェック
                 for tgtkey in ents.keys():
@@ -106,17 +108,19 @@ class RCT_Factry():
                         continue
 
                     if not ent.plane().isCoPlanarTo(tgt.plane()):
-                        msg.append("Not on the same plane:{} , {}".format(key, tgtkey))
+                        s = l.sLng("Not on the same plane :") + ":{} , {}".format(l.sLng(key), l.sLng(tgtkey))
+                        msg.append(s)
 
 
             # baseCircle-targetCircle 比率チェック
             res = self._getFraction()
             if not res:
-                msg.append("The ratio of circles to each other should be a rational number.:Base Circle , Target Circle")
+                s = l.sLng("The ratio of circles to each other should be a rational number :") + "{} , {}".format(l.sLng("Base Circle") ,l.sLng("Target Circle"))
+                msg.append(s)
 
 
             if len(msg) < 1:
-                return True, 'Base Rotation Count:{}\nTarget Rotation Count:{}'.format(res[1], res[0])
+                return True, l.sLng('Base Rotation Count') + ':{}\n'.format(res[1]) + l.sLng('Target Rotation Count') + ':{}'.format(res[0])
             else:
                 return False, '\n'.join(msg)
 
