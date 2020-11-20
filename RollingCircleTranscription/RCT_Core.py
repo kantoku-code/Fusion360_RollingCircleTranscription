@@ -130,6 +130,7 @@ class RCT_Factry():
     def execute(
         self,
         targetAngle :int,
+        revBase :bool,
         previewStep = 2
         ) -> adsk.core.Surface:
 
@@ -153,7 +154,7 @@ class RCT_Factry():
             baseSurf = tmpMgr.createFaceFromPlanarWires([wireBodies[0]])
 
             # target surface
-            wireBodies = tmpMgr.createWireFromCurves([self._targetCircle.geometry])
+            wireBodies = tmpMgr.createWireFromCurves([self._targetCircle.worldGeometry])
             targetSurf = tmpMgr.createFaceFromPlanarWires([wireBodies[0]])
 
             # target-base ratio
@@ -165,22 +166,24 @@ class RCT_Factry():
 
             count :int = int(abs(360 * targetCount / targetAngle))
             rad = math.radians(targetAngle)
+            if revBase:
+                rad = rad * -1
 
             # mat-base
             mat3D = adsk.core.Matrix3D
             baseMat :adsk.core.Matrix3D = mat3D.create()
             baseMat.setToRotation(
                 rad * ratio, 
-                self._baseCircle.geometry.normal, 
-                self._baseCircle.geometry.center)
+                self._baseCircle.worldGeometry.normal, 
+                self._baseCircle.worldGeometry.center)
 
             # mat-target
             targetMat :adsk.core.Matrix3D = mat3D.create()
             targetMat.setToRotation(
                 rad * -1,
-                self._targetCircle.geometry.normal,
-                self._targetCircle.geometry.center)
-
+                self._targetCircle.worldGeometry.normal,
+                self._targetCircle.worldGeometry.center)
+                
             # create target
             t = time.time()
 

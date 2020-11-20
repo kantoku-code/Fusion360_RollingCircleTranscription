@@ -22,6 +22,7 @@ _sDict = {
     'Select Target Circle':'ターゲットサークルの選択',
     'Tolerance':'トレランス',
     'information':'情報',
+    '  Base Circle clockwise':'  ベースサークル時計回り',
 
     # RCT_Core
     'Base Profile':'ベースプロファイル',

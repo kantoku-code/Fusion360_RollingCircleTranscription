@@ -18,6 +18,7 @@ Please follow the instructions [here](https://knowledge.autodesk.com/support/fus
     ![Alt text](./resources/dialog_eng.png)
     + A (base profile) : the single profile of the source of the transcription.
     + B (Base Circle) : the circle from which the profile is to be transferred.
+        + Forward rotation is counterclockwise, and if checked, it will be generated clockwise.
     + C (target circle) : the circle to be transcribed.
         + In the ratio of the diameter of the target circle to the base circle,
         The number of revolutions of each other will be determined.
@@ -38,7 +39,7 @@ Please follow the instructions [here](https://knowledge.autodesk.com/support/fus
 
 ## Issue：
 - ~~Cumbersome to call (To add-in)~~
-- ~~English notation only (Make it multilingual)~~　English / Japanese only
+- ~~English notation only (Make it multilingual)~~ English / Japanese only
 - Reverse Rotation Support
 - Not supported for components
 - Support for multiple profiles in the base profile
@@ -80,6 +81,7 @@ MIT
     ![Alt text](./resources/dialog_jpn.png)
     + A(ベースプロファイル) : 転写元の単一のプロファイル。
     + B(ベースサークル) : 転写元の円。
+        + 正回転は反時計回りで、チェックを入れると時計回りで生成します。
     + C(ターゲットサークル) : 転写される円。
         + ベースサークルとターゲットサークルの直径の比率で,
         お互いの回転数が決定します。
@@ -100,7 +102,7 @@ MIT
 
 ## 問題：
 - ~~呼び出しが面倒 (アドイン化)~~
-- ~~英語表記のみ (多言語化)~~英語・日本語のみ
+- ~~英語表記のみ (多言語化)~~ 英語・日本語のみ
 - 逆回転対応
 - コンポーネントに対して未対応
 - ベースプロファイルを複数プロファイル対応

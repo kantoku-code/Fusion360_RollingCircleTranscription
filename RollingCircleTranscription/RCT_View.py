@@ -19,6 +19,9 @@ _selBaseInfo = ['selBase',l.sLng('B:Base Circle'),l.sLng('Select Base Circle'),
     ['SketchCircles']]
 _selBaseIpt :adsk.core.SelectionCommandInput.cast(None)
 
+_revBaseInfo = ['revBase',l.sLng('  Base Circle clockwise'),True,'',False]
+_revBaseIpt :adsk.core.BoolValueCommandInput.cast(None)
+
 _selTargetInfo = ['selTarget',l.sLng('C:Target Circle'),l.sLng('Select Target Circle'),
     ['SketchCircles']]
 _selTargetIpt :adsk.core.SelectionCommandInput.cast(None)
@@ -88,8 +91,11 @@ class RCT_View(Fusion360CommandBase):
             key =_dwnToleranceIpt.selectedItem.name
             tolerance :int = _dwnToleranceInfo[3][key]
 
+            global _revBaseIpt
             global _fact
-            surf = _fact.execute(tolerance)
+            surf = _fact.execute(
+                tolerance, _revBaseIpt.value)
+                
             if not surf:
                 return
 
@@ -134,6 +140,10 @@ class RCT_View(Fusion360CommandBase):
         _selBaseIpt.setSelectionLimits(0)
         [_selBaseIpt.addSelectionFilter(s) for s in _selBaseInfo[3]]
 
+        global _revBaseInfo, _revBaseIpt
+        _revBaseIpt = inputs.addBoolValueInput(
+            _revBaseInfo[0], _revBaseInfo[1], _revBaseInfo[2], _revBaseInfo[3], _revBaseInfo[4])
+
         global _selTargetInfo, _selTargetIpt
         _selTargetIpt = inputs.addSelectionInput(
             _selTargetInfo[0], _selTargetInfo[1], _selTargetInfo[2])
@@ -146,6 +156,7 @@ class RCT_View(Fusion360CommandBase):
         dwnItems = _dwnToleranceIpt.listItems
         dic = _dwnToleranceInfo[3]
         [dwnItems.add(key, True, '') for key in dic.keys()]
+
 
         global _stateInfo, _stateInfoIpt
         _stateInfoIpt = inputs.addStringValueInput(_stateInfo[0], _stateInfo[1], _stateInfo[2])
