@@ -40,7 +40,7 @@ Please follow the instructions [here](https://knowledge.autodesk.com/support/fus
 ## Issue：
 - ~~Cumbersome to call (To add-in)~~
 - ~~English notation only (Make it multilingual)~~ English / Japanese only
-- Reverse Rotation Support
+- ~~Reverse Rotation Support~~
 - Not supported for components
 - Support for multiple profiles in the base profile
 - Targeted also pre-run profile support
@@ -103,7 +103,7 @@ MIT
 ## 問題：
 - ~~呼び出しが面倒 (アドイン化)~~
 - ~~英語表記のみ (多言語化)~~ 英語・日本語のみ
-- 逆回転対応
+- ~~逆回転対応~~
 - コンポーネントに対して未対応
 - ベースプロファイルを複数プロファイル対応
 - ターゲットにも実行前プロファイル対応
