@@ -15,7 +15,7 @@ Please follow the instructions [here](https://knowledge.autodesk.com/support/fus
 + Execute the command.。
 + A dialog appears. Please select each item.
 
-    ![Alt text](./resources/dialog.png)
+    ![Alt text](./resources/dialog_eng.png)
     + A (base profile) : the single profile of the source of the transcription.
     + B (Base Circle) : the circle from which the profile is to be transferred.
     + C (target circle) : the circle to be transcribed.
@@ -38,7 +38,7 @@ Please follow the instructions [here](https://knowledge.autodesk.com/support/fus
 
 ## Issue：
 - ~~Cumbersome to call (To add-in)~~
-- English notation only (Make it multilingual)
+- ~~English notation only (Make it multilingual)~~　English / Japanese only
 - Reverse Rotation Support
 - Not supported for components
 - Support for multiple profiles in the base profile
@@ -77,7 +77,7 @@ MIT
 
 + ダイアログが表示されます。各項目を選択して下さい。
 
-    ![Alt text](./resources/dialog.png)
+    ![Alt text](./resources/dialog_jpn.png)
     + A(ベースプロファイル) : 転写元の単一のプロファイル。
     + B(ベースサークル) : 転写元の円。
     + C(ターゲットサークル) : 転写される円。
@@ -100,7 +100,7 @@ MIT
 
 ## 問題：
 - ~~呼び出しが面倒 (アドイン化)~~
-- 英語表記のみ (多言語化)
+- ~~英語表記のみ (多言語化)~~英語・日本語のみ
 - 逆回転対応
 - コンポーネントに対して未対応
 - ベースプロファイルを複数プロファイル対応
