@@ -4,9 +4,9 @@
 	"id":	"81c8cb2c-fa70-4606-8509-30d2413aa7ec",
 	"author":	"kantoku",
 	"description":	{
-		"":	""
+		"":	"It transfers the shape by two circular motions."
 	},
-	"version":	"0.0.2",
+	"version":	"0.0.3",
 	"runOnStartup":	false,
 	"supportedOS":	"windows|mac",
 	"editEnabled":	true

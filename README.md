@@ -31,7 +31,10 @@ Please follow the instructions [here](https://knowledge.autodesk.com/support/fus
         + When the correct selection is made, it displays the number of rotations of the base circle and the target circle.
         It is recommended to review the diameter of each circle, as a large number of rotations will take too long to process.
         + If you have made a wrong selection, the OK button will show you why it is grayed out.
+
 + Press the OK button to start the animation you want to create.
+
++ The result after execution is created in the same component as the target circle.
 
 ## Constraints：
 - The base profile, base circle, and target circle can be drawn in different sketches, but they must all exist in the same plane.
@@ -41,10 +44,11 @@ Please follow the instructions [here](https://knowledge.autodesk.com/support/fus
 - ~~Cumbersome to call (To add-in)~~
 - ~~English notation only (Make it multilingual)~~ English / Japanese only
 - ~~Reverse Rotation Support~~
-- Not supported for components
+- ~~Not supported for components~~
 - Support for multiple profiles in the base profile
 - Targeted also pre-run profile support
 - Response to sketches and solids in processing results
+- Undo history remains more than necessary
 
 ## Action:
 Confirmed in the following environment.
@@ -94,7 +98,10 @@ MIT
         + 正しい選択時には、ベースサークルとターゲットサークルの回転数を表示します。
         回転数が多い場合は処理時間が掛かりすぎるため、各円の直径の見直しをお勧めします。
         + 誤った選択を行っている場合、OKボタンがグレーアウトしている理由を表示します。
+
 + OKボタンを押すことで作成するアニメーションがスタートします。
+
++ 実行後の結果は、ターゲットサークルと同じコンポーネント内に作成されます。
 
 ## 制約：
 - ベースプロファイル・ベースサークル・ターゲットサークルの3個は、異なるスケッチで描かれていても問題ありませんが、全て同一平面上に存在している必要があります。
@@ -104,10 +111,11 @@ MIT
 - ~~呼び出しが面倒 (アドイン化)~~
 - ~~英語表記のみ (多言語化)~~ 英語・日本語のみ
 - ~~逆回転対応~~
-- コンポーネントに対して未対応
+- ~~コンポーネントに対して未対応~~
 - ベースプロファイルを複数プロファイル対応
 - ターゲットにも実行前プロファイル対応
 - 処理結果のスケッチ・ソリッドへの対応
+- Undo歴が必要以上に残る
 
 ## アクション:
 以下の環境で確認しています。

@@ -100,7 +100,7 @@ class RCT_View(Fusion360CommandBase):
                 return
 
             # create surface
-            _fact.initSurface(surf)
+            _fact.initSurface(surf, _fact.targetCircle.parentSketch.parentComponent)
 
         except:
             AppObjects().ui.messageBox('Failed:\n{}'.format(traceback.format_exc()))

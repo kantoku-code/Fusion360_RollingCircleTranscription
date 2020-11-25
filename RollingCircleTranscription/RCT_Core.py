@@ -134,8 +134,23 @@ class RCT_Factry():
         previewStep = 2
         ) -> adsk.core.Surface:
 
-        def dumpMsg(msg :str):
-            self._ui.palettes.itemById('TextCommands').writeText(str(msg))
+        def getRootMatrix(
+            occ :adsk.fusion.Occurrence
+            ) -> adsk.core.Matrix3D:
+
+            des = adsk.fusion.Design.cast(occ.component.parentDesign)
+            root = des.rootComponent
+
+            mat = adsk.core.Matrix3D.create()
+            occ_names = occ.fullPathName.split('+')
+            occs = [root.allOccurrences.itemByName(name) 
+                        for name in occ_names]
+            mat3ds = [occ.transform for occ in occs]
+            mat3ds.reverse() #important!!
+            for mat3d in mat3ds:
+                mat.transformBy(mat3d)
+
+            return mat
 
         try:
             # check
@@ -148,10 +163,18 @@ class RCT_Factry():
             # base surface
             crvs = []
             for loop in self._baseProfile.profileLoops:
-                crvs.extend([c.geometry for c in loop.profileCurves])
+                crvs.extend([c.sketchEntity.worldGeometry for c in loop.profileCurves])
 
-            wireBodies = tmpMgr.createWireFromCurves(crvs)
-            baseSurf = tmpMgr.createFaceFromPlanarWires([wireBodies[0]])
+            mat = adsk.core.Matrix3D.create()
+            try:
+                mat = getRootMatrix(self._baseProfile.assemblyContext)
+            except:
+                # root entity
+                pass
+            
+            wireBody, _ = tmpMgr.createWireFromCurves(crvs)
+            tmpMgr.transform(wireBody, mat)
+            baseSurf :adsk.fusion.BRepFace = tmpMgr.createFaceFromPlanarWires([wireBody])
 
             # target surface
             wireBodies = tmpMgr.createWireFromCurves([self._targetCircle.worldGeometry])
@@ -161,8 +184,8 @@ class RCT_Factry():
             ratio = self._targetCircle.radius / self._baseCircle.radius
             targetCount, _ = self._getFraction()
             if DEBUG:
-                dumpMsg('ratio  {}'.format(ratio))
-                dumpMsg('getFraction  {}:{}'.format(_, targetCount))
+                self.dumpMsg('ratio  {}'.format(ratio))
+                self.dumpMsg('getFraction  {}:{}'.format(_, targetCount))
 
             count :int = int(abs(360 * targetCount / targetAngle))
             rad = math.radians(targetAngle)
@@ -199,7 +222,7 @@ class RCT_Factry():
                     adsk.doEvents()
                     self._app.activeViewport.refresh()
 
-            dumpMsg('{:.3f}sec'.format(time.time() - t))
+            self.dumpMsg('{:.3f}sec'.format(time.time() - t))
 
             self._cg.removeCG()
             return targetSurf
@@ -214,10 +237,48 @@ class RCT_Factry():
         comp :adsk.fusion.Component = None
         ) -> adsk.fusion.BRepBody:
 
+        def getOccurrenceMatrix(
+            occ :adsk.fusion.Occurrence
+            ) -> adsk.core.Matrix3D:
+
+            des = adsk.fusion.Design.cast(occ.component.parentDesign)
+            root = des.rootComponent
+
+            mat = adsk.core.Matrix3D.create()
+            if DEBUG:
+                self.dumpMsg('mat0 : {}'.format(mat.asArray()))
+                self.dumpMsg( occ.fullPathName)
+
+            occ_names = occ.fullPathName.split('+')
+            occs = [root.allOccurrences.itemByName(name) 
+                        for name in occ_names]
+            mat3ds = [occ.transform for occ in occs]
+            [mat.invert() for mat in mat3ds]
+            
+            for mat3d in mat3ds:
+                if DEBUG:
+                    self.dumpMsg('- : {}'.format(mat3d.asArray()))
+
+                mat.transformBy(mat3d)
+
+            if DEBUG:
+                self.dumpMsg('mat_occs : {}'.format(mat.asArray()))
+
+            return mat
+
         des :adsk.fusion.Design = self._app.activeDocument.design
 
         if not comp:
             comp = des.rootComponent
+
+        mat = adsk.core.Matrix3D.create()
+        try:
+            mat = getOccurrenceMatrix(self._targetCircle.assemblyContext)
+            tmpMgr = adsk.fusion.TemporaryBRepManager.get()
+            tmpMgr.transform(surf, mat)
+        except:
+            # root entity
+            pass
 
         bodies = comp.bRepBodies
 
@@ -237,6 +298,9 @@ class RCT_Factry():
                 baseFeature.finishEdit()
 
         return brep
+
+    def dumpMsg(self, msg :str):
+        self._ui.palettes.itemById('TextCommands').writeText(str(msg))
 
 class DrawCGFactry():
 
